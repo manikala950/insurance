@@ -1,0 +1,244 @@
+/* ------------------------------------------------------
+   GLOBAL
+------------------------------------------------------ */
+:root {
+  --blue: #0d6efd;
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.agent-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: "Inter", sans-serif;
+}
+
+/* ------------------------------------------------------
+   MOBILE TOP BAR  (visible ONLY on mobile)
+------------------------------------------------------ */
+.mobile-top {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .mobile-top {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: var(--blue);
+    color: #fff;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 18px;
+    z-index: 3000;
+    box-shadow: var(--shadow);
+  }
+
+  .hamburger,
+  .notify-icon {
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+/* ------------------------------------------------------
+   SIDEBAR — DESKTOP VERSION (always visible)
+------------------------------------------------------ */
+.sidebar {
+  width: 240px;
+  background: var(--card);
+  padding: 20px;
+  border-right: 1px solid var(--border);
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  box-shadow: var(--shadow);
+}
+
+/* ❗ Hide desktop sidebar on mobile */
+@media (max-width: 992px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------
+   SIDEBAR — MOBILE SLIDE-IN
+------------------------------------------------------ */
+@media (max-width: 992px) {
+  .sidebar.open {
+    display: block;
+    position: fixed;
+    top: 56px; /* under mobile top bar */
+    left: 0;
+    width: 240px;
+    height: calc(100vh - 56px);
+    background: var(--card);
+    z-index: 2500;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+    box-shadow: var(--shadow);
+  }
+}
+
+/* Sidebar menu */
+.sidebar-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.menu {
+  list-style: none;
+  padding-left: 0;
+}
+
+.menu li {
+  padding: 12px 10px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.menu li:hover {
+  background: rgba(13,110,253,0.12);
+}
+
+/* ------------------------------------------------------
+   MAIN CONTENT
+------------------------------------------------------ */
+.main-content {
+  flex: 1;
+  padding: 25px;
+}
+
+@media (max-width: 992px) {
+  .main-content {
+    padding: 20px;
+    margin-top: 70px; /* space for mobile top bar */
+  }
+}
+
+/* ------------------------------------------------------
+   HEADER
+------------------------------------------------------ */
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.header-right {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.notify-btn {
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 22px;
+  cursor: pointer;
+  position: relative;
+}
+
+.notify-count {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  background: red;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 7px;
+  font-size: 11px;
+}
+
+/* ------------------------------------------------------
+   STATS GRID
+------------------------------------------------------ */
+.stats-grid {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(5, 1fr);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 992px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stat-card {
+  background: var(--card);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.stat-card h3 {
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+/* ------------------------------------------------------
+   TABLE + CARDS
+------------------------------------------------------ */
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+
+.policy-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.policy-table th,
+.policy-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.status {
+  font-weight: bold;
+}
+
+.status.approved {
+  color: #22c55e;
+}
+
+.status.pending {
+  color: #eab308;
+}
+
+.status.rejected {
+  color: #ef4444;
+}
+
+/* ADD CUSTOMER BUTTON */
+.add-customer-btn {
+  padding: 10px 18px;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}

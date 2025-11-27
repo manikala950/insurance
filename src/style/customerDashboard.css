@@ -1,0 +1,255 @@
+/* ---------------------------------------------------------
+   GLOBAL
+--------------------------------------------------------- */
+:root {
+  --blue: #0d6efd;
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #333;
+  --border: #e5e7eb;
+  --shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.customer-dashboard {
+  display: flex;
+  background: var(--bg);
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  transition: 0.3s;
+}
+
+/* ----------------- DARK MODE ----------------- */
+.customer-dashboard.dark-mode {
+  --bg: #1e1e1e;
+  --card: #2a2a2a;
+  --text: #eee;
+  --border: #444;
+}
+
+.dark-mode .card,
+.dark-mode .sidebar {
+  background: var(--card);
+  color: var(--text);
+}
+
+/* ---------------------------------------------------------
+   MOBILE TOP BAR (ALWAYS VISIBLE)
+--------------------------------------------------------- */
+.mobile-top {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .mobile-top {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: var(--blue);
+    color: #fff;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+    z-index: 3000;
+  }
+
+  .hamburger,
+  .dark-toggle {
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: #fff;
+  }
+}
+
+/* ---------------------------------------------------------
+   SIDEBAR — DESKTOP (ALWAYS VISIBLE)
+--------------------------------------------------------- */
+.sidebar {
+  width: 240px;
+  background: var(--card);
+  padding: 20px;
+  min-height: 100vh;
+  border-right: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+}
+
+/* ------ HIDE DESKTOP SIDEBAR IN MOBILE ------ */
+@media (max-width: 992px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------
+   MOBILE SIDEBAR (SLIDE IN)
+--------------------------------------------------------- */
+@media (max-width: 992px) {
+  .sidebar.open {
+    display: block;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 240px;
+    height: calc(100vh - 56px);
+    background: var(--card);
+    box-shadow: var(--shadow);
+    transform: translateX(0);
+    z-index: 2500;
+    transition: transform 0.3s ease;
+  }
+}
+
+/* ---------------------------------------------------------
+   SIDEBAR MENU
+--------------------------------------------------------- */
+.sidebar-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.menu {
+  padding: 0;
+  list-style: none;
+}
+
+.menu li {
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.menu li:hover {
+  background: rgba(13, 110, 253, 0.12);
+}
+
+/* ---------------------------------------------------------
+   MAIN CONTENT
+--------------------------------------------------------- */
+.main-content {
+  flex: 1;
+  padding: 25px;
+}
+
+@media (max-width: 992px) {
+  .main-content {
+    padding: 20px;
+    margin-top: 70px; /* Prevent overlapping top bar */
+  }
+}
+
+/* ---------------------------------------------------------
+   DASHBOARD HEADER
+--------------------------------------------------------- */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.right-tools {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.notify-btn {
+  position: relative;
+  background: #fff;
+  padding: 6px 12px;
+  border-radius: 50%;
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: red;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+/* ---------------------------------------------------------
+   CARDS
+--------------------------------------------------------- */
+.card {
+  background: var(--card);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+
+.animated-card {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------------------------------------------------------
+   TRACKING BAR
+--------------------------------------------------------- */
+.tracking-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.step {
+  text-align: center;
+}
+
+.circle {
+  width: 28px;
+  height: 28px;
+  background: #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.completed .circle {
+  background: #34a853;
+  color: #fff;
+}
+
+.bar {
+  width: 40px;
+  height: 4px;
+  background: #ccc;
+  border-radius: 5px;
+}
+
+.completed.bar {
+  background: #34a853;
+}
+
+/* ---------------------------------------------------------
+   CHART FIX — Prevent overflow on small screens
+--------------------------------------------------------- */
+.card canvas {
+  max-width: 100%;
+}

@@ -1,0 +1,125 @@
+/* =================================================================
+   🌈 PREMIUM LOGIN PAGE DESIGN
+   Gradient Background • Glassmorphism • Animated • Modern UI
+   ================================================================= */
+
+/* FULL SCREEN BACKGROUND */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #002b73, #0073ff, #00b8ff, #6dd5fa);
+  background-size: 300% 300%;
+  animation: bgAnimation 10s infinite ease-in-out;
+}
+
+/* BACKGROUND ANIMATION */
+@keyframes bgAnimation {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* LOGIN BOX */
+.login-box {
+  width: 380px;
+  padding: 35px 30px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.30);
+  text-align: center;
+  color: white;
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* FADE IN ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* INPUT FIELDS */
+.login-input {
+  width: 100%;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  transition: 0.25s;
+}
+
+.login-input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.login-input:focus {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.02);
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #00d4ff, #0077ff);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 12px;
+  cursor: pointer;
+
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  transition: 0.25s;
+}
+
+.login-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #14c3ff, #1a64ff);
+}
+
+.login-btn:active {
+  transform: scale(0.97);
+}
+
+/* ERROR BOX */
+.error-box {
+  background: rgba(255, 67, 67, 0.9);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  animation: shake 0.3s;
+}
+
+/* SHAKE EFFECT */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
+  100% { transform: translateX(0); }
+}
+
+/* SAMPLE CREDENTIALS BOX */
+.sample-credentials {
+  margin-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 15px;
+  text-align: left;
+  font-size: 13px;
+  color: rgb(230, 240, 255);
+}
+
+.sample-credentials p {
+  margin: 5px 0;
+}
