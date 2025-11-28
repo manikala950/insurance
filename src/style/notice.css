@@ -1,0 +1,114 @@
+/* style/notice.css - LIGHT THEME VERSION */
+
+/* --- GENERAL THEME ENHANCEMENTS (LIGHT) --- */
+
+:root {
+    --bg-light-color: #f8f9fa; /* Very Light Background (Bootstrap default) */
+    --card-bg-color: #ffffff; /* White Card Background */
+    --text-dark-color: #212529; /* Dark Text */
+    --text-muted-color: #6c757d; /* Muted Text */
+    --primary-color: #007bff; /* Standard Bootstrap Primary Blue for emphasis */
+    --warning-color: #ffc107; /* Standard Bootstrap warning */
+    --info-color: #17a2b8; /* Standard Bootstrap info */
+    --transition-speed: 0.3s;
+    --border-light-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 1. Global Background */
+body {
+    background-color: var(--bg-light-color);
+}
+
+/* 2. Customizing Bootstrap Cards for a cleaner light look */
+.card {
+    background-color: var(--card-bg-color) !important;
+    border: 1px solid var(--border-light-color) !important;
+    /* Soft shadow for depth */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    transition: box-shadow var(--transition-speed);
+}
+
+.card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure header text is dark in the light theme */
+.text-light {
+    color: var(--text-dark-color) !important;
+}
+
+/* 3. Customizing Form Controls (Textarea/Input) */
+.form-control {
+    background-color: #f0f0f0 !important; /* Slightly off-white input background */
+    color: var(--text-dark-color) !important;
+    border: 1px solid #ced4da !important;
+    box-shadow: none !important;
+    transition: border-color var(--transition-speed);
+}
+
+.form-control::placeholder {
+    color: var(--text-muted-color);
+    opacity: 1;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color) !important; /* Highlight focus with primary color */
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25) !important;
+}
+
+/* --- BUTTON STYLING (Standard Bootstrap Look Enhancement) --- */
+
+/* Info Button (Post Notice) */
+.btn-info {
+    background-color: var(--info-color);
+    border-color: var(--info-color);
+    color: #ffffff !important; 
+    font-weight: 700 !important;
+    /* Subtle shadow/lift */
+    box-shadow: 0 2px 5px rgba(23, 162, 184, 0.4); 
+    transition: all var(--transition-speed);
+}
+
+.btn-info:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 4px 8px rgba(23, 162, 184, 0.6);
+    transform: translateY(-1px);
+}
+
+/* Warning Button (Back) */
+.btn-warning {
+    background-color: var(--warning-color);
+    border-color: var(--warning-color);
+    color: var(--text-dark-color) !important; /* Dark text on bright button */
+    transition: all var(--transition-speed);
+}
+
+.btn-warning:hover {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+}
+
+
+/* --- NOTICE LIST STYLING --- */
+
+.list-group-item {
+    /* Bootstrap utility classes (bg-secondary) will need correction if used,
+       but assuming no utility class is used on the list item itself: */
+    background-color: #e9ecef !important; /* Light grey list item background */
+    border-color: #dee2e6 !important;
+    color: var(--text-dark-color) !important;
+    padding: 12px 15px;
+    margin-bottom: 5px; 
+    border-radius: 6px !important;
+    transition: background-color var(--transition-speed);
+}
+
+.list-group-item:hover {
+    background-color: #d8e0e7 !important; /* Slightly darker hover */
+}
+
+/* Time text (using Bootstrap 'text-warning') */
+.list-group-item small.text-warning {
+    color: var(--warning-color) !important;
+    font-weight: 500;
+}

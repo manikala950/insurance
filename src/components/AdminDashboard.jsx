@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../style/admindashboard.css";
 
-
 const sampleStats = {
   customers: 1242,
   agents: 38,
@@ -27,9 +26,9 @@ export default function AdminDashboard() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="admin-dashboard">
+    <div className="admin-dashboard dark-theme">
 
-      {/* ---------------------- MOBILE TOP BAR ---------------------- */}
+      {/* MOBILE TOP BAR */}
       <div className="mobile-top">
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
           ☰
@@ -37,78 +36,30 @@ export default function AdminDashboard() {
 
         <h3>Insurance Admin</h3>
 
-        <button className="notify-btn">
-          🔔
-        </button>
+        <button className="notify-btn">🔔</button>
       </div>
 
-      {/* ---------------------- SIDEBAR (Desktop + Mobile Slide) ---------------------- */}
-      <div className={`sidebar ${menuOpen ? "open" : ""}`}>
+      {/* SIDEBAR */}
+      <div className={`sidebar glass-card ${menuOpen ? "open" : ""}`}>
         <h2 className="sidebar-title">Admin Panel</h2>
 
-<ul className="menu">
+        <ul className="menu">
+          <li className="active">
+            <i className="bi bi-house-door-fill me-2"></i> Home
+          </li>
 
-  <li className="active">
-    <i className="bi bi-house-door-fill me-2"></i> Home
-  </li>
+          <li><button className="menu-btn" onClick={() => navigate("/agents/view")}>👥 Agents</button></li>
+          <li><button className="menu-btn" onClick={() => navigate("/customer/view")}>🧑‍💼 Customers</button></li>
+          <li><button className="menu-btn" onClick={() => navigate("/notice")}>🔔 Notices</button></li>
+          <li><button className="menu-btn" onClick={() => navigate("/reports")}>📊 Reports</button></li>
+          <li><button className="menu-btn" onClick={() => navigate("/claims")}>⚠️ Insurance Claims</button></li>
+        </ul>
 
-  <li>
-    <button
-      className="btn btn-primary w-100 text-start"
-      onClick={() => navigate("/agents/view")}
-    >
-      <i className="bi bi-people-fill me-2"></i>
-      Agents
-    </button>
-  </li>
-
-  <li>
-    <button
-      className="btn btn-primary w-100 text-start"
-      onClick={() => navigate("/customer/view")}
-    >
-      <i className="bi bi-person-lines-fill me-2"></i>
-      Customers
-    </button>
-  </li>
-
-  <li>
-    <button
-      className="btn btn-primary w-100 text-start"
-      onClick={() => navigate("/notice")}
-    >
-      <i className="bi bi-bell-fill me-2"></i>
-      Notices
-    </button>
-  </li>
-
-  <li>
-    <button
-      className="btn btn-primary w-100 text-start"
-      onClick={() => navigate("/reports")}
-    >
-      <i className="bi bi-folder2-open me-2"></i>
-      Reports
-    </button>
-  </li>
-
-  <li>
-    <button
-      className="btn btn-primary w-100 text-start"
-      onClick={() => navigate("/claims")}
-    >
-      <i className="bi bi-file-earmark-check-fill me-2"></i>
-      Insurance Claims
-    </button>
-  </li>
-
-</ul>
-
-
-        <div className="version-box">Version <strong>1.0.0</strong></div>
+        
+        
       </div>
 
-      {/* ---------------------- MAIN CONTENT ---------------------- */}
+      {/* MAIN CONTENT */}
       <div className="main-content">
 
         {/* HEADER */}
@@ -117,32 +68,30 @@ export default function AdminDashboard() {
 
           <div className="admin-profile">
             <img
-              src="https://ui-avatars.com/api/?name=Admin&background=0D6EFD&color=fff"
+              src="https://ui-avatars.com/api/?name=Admin&background=111&color=fff"
               alt="Admin"
             />
             <div>
               <h4>Admin</h4>
-              <small>Super Admin</small>
             </div>
           </div>
         </div>
 
-        {/* TOP STATS */}
+        {/* PREMIUM STATS */}
         <div className="stats-grid">
-          <StatCard title="Customers" value={sampleStats.customers} />
-          <StatCard title="Agents" value={sampleStats.agents} />
-          <StatCard title="Policies (This Month)" value={sampleStats.policiesThisMonth} />
-          <StatCard title="Claims (This Month)" value={sampleStats.claimsThisMonth} />
+          <StatCard title="Customers" value={sampleStats.customers}  />
+          <StatCard title="Agents" value={sampleStats.agents}  />
+          <StatCard title="Policies (Month)" value={sampleStats.policiesThisMonth}  />
+          <StatCard title="Claims (Month)" value={sampleStats.claimsThisMonth}  />
         </div>
 
         {/* GRID LAYOUT */}
         <div className="content-grid">
 
-          {/* LEFT COLUMN */}
+          {/* LEFT SIDE */}
           <div>
-
             {/* Notices */}
-            <div className="card">
+            <div className="card glass-card">
               <div className="card-header">
                 <h4>Notices</h4>
                 <button className="view-btn">View All</button>
@@ -159,31 +108,23 @@ export default function AdminDashboard() {
             </div>
 
             {/* Quick Actions */}
-            <div className="card">
+            <div className="card glass-card">
               <h4 className="mb-3">Quick Actions</h4>
 
               <div className="action-grid">
-                <button className="action-btn" onClick={()=>navigate("/add-agent")}>Add Agent</button>
-
-                <button
-                  className="action-btn"
-                  onClick={() => navigate("/add-customer")}
-                >
-                  Add Customer
-                </button>
-
-                <button className="action-btn" onClick={()=>navigate("/create-notice")}>Create Notice</button>
-                <button className="action-btn" onClick={()=>navigate("/GenerateReport")}>Generate Report</button>
+                <button className="action-btn neon-btn" onClick={() => navigate("/add-agent")}>Add Agent</button>
+                <button className="action-btn neon-btn" onClick={() => navigate("/add-customer")}>Add Customer</button>
+                <button className="action-btn neon-btn" onClick={() => navigate("/notice")}>Create Notice</button>
+                <button className="action-btn neon-btn" onClick={() => navigate("/GenerateReport")}>Generate Report</button>
               </div>
             </div>
-
           </div>
 
-          {/* RIGHT COLUMN */}
+          {/* RIGHT SIDE */}
           <div>
 
-            {/* Customers Table */}
-            <div className="card">
+            {/* Customer Table */}
+            <div className="card glass-card">
               <h4>Recent Customers</h4>
 
               <table className="custom-table">
@@ -202,20 +143,20 @@ export default function AdminDashboard() {
                       <td>{c.name}</td>
                       <td>{c.policy}</td>
                       <td>{c.lastPayment}</td>
-                      <td><button className="btn-view">View</button></td>
+                      <td><button className="btn-view neon-btn">View</button></td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            {/* Summary Box */}
-            <div className="summary-box">
+            {/* Summary */}
+            <div className="summary-box glass-card">
               <h3>Overall Summary</h3>
 
               <div className="summary-stats">
                 <PremiumStat title="Total Customers" value={sampleStats.customers} icon="👥" />
-                <PremiumStat title="Active Agents" value={sampleStats.agents} icon="🧑‍💼" />
+                <PremiumStat title="Active Agents" value={sampleStats.agents} icon="📌" />
                 <PremiumStat title="Policies This Month" value={sampleStats.policiesThisMonth} icon="📄" />
                 <PremiumStat title="Claims This Month" value={sampleStats.claimsThisMonth} icon="⚠️" />
               </div>
@@ -230,9 +171,9 @@ export default function AdminDashboard() {
   );
 }
 
-function StatCard({ title, value }) {
+function StatCard({ title, value, color }) {
   return (
-    <div className="stat-card">
+    <div className={`stat-card glow-${color}`}>
       <p>{title}</p>
       <h3>{value}</h3>
     </div>

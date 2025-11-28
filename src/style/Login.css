@@ -1,5 +1,5 @@
 /* =================================================================
-   🌈 PREMIUM LOGIN PAGE DESIGN
+   🌈 PREMIUM LOGIN PAGE DESIGN WITH BACKGROUND IMAGE
    Gradient Background • Glassmorphism • Animated • Modern UI
    ================================================================= */
 
@@ -7,29 +7,41 @@
 .login-container {
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+
+  /* 👉 SHIFT LOGIN BOX TO RIGHT SIDE */
+  justify-content: flex-end;
   align-items: center;
 
-  background: linear-gradient(135deg, #002b73, #0073ff, #00b8ff, #6dd5fa);
-  background-size: 300% 300%;
+  /* 👉 Space from right edge (adjust if needed) */
+  padding-right: 175px;
+
+  /* 🔹 Background Image + Gradient Overlay */
+  background: 
+    linear-gradient(135deg, rgba(0, 43, 115, 0.75), rgba(0, 115, 255, 0.75)),
+    url("/images/login-bg.avif");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   animation: bgAnimation 10s infinite ease-in-out;
 }
 
 /* BACKGROUND ANIMATION */
 @keyframes bgAnimation {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0%   { filter: brightness(0.95); }
+  50%  { filter: brightness(1.05); }
+  100% { filter: brightness(0.95); }
 }
 
 /* LOGIN BOX */
 .login-box {
   width: 380px;
   padding: 35px 30px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14);
   border-radius: 18px;
   backdrop-filter: blur(12px);
-  box-shadow: 0 10px 35px rgba(0,0,0,0.30);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.35);
   text-align: center;
   color: white;
   animation: fadeIn 0.6s ease-out;

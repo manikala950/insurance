@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../style/login.css";
 
@@ -15,23 +15,32 @@ export default function Login() {
   const [form, setForm] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
 
+  // Check if user is already logged in
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("userRole");
+    if (loggedInUser) {
+      navigate(`/${loggedInUser}`);
+    }
+  }, [navigate]);
+
   const handleLogin = (e) => {
     e.preventDefault();
-
     const { username, password } = form;
 
-    // Validate credentials
     if (username === users.admin.username && password === users.admin.password) {
+      localStorage.setItem("userRole", "admin");
       navigate("/admin");
       return;
     }
 
     if (username === users.agent.username && password === users.agent.password) {
+      localStorage.setItem("userRole", "agent");
       navigate("/agent");
       return;
     }
 
     if (username === users.customer.username && password === users.customer.password) {
+      localStorage.setItem("userRole", "customer");
       navigate("/customer");
       return;
     }

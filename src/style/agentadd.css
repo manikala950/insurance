@@ -1,0 +1,134 @@
+/* ---------------------------------------------------------
+   PAGE WRAPPER
+--------------------------------------------------------- */
+.main-content {
+  padding: 30px;
+}
+
+/* ---------------------------------------------------------
+   HEADER + BREADCRUMB
+--------------------------------------------------------- */
+.dashboard-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.breadcrumb {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ---------------------------------------------------------
+   CARD DESIGN
+--------------------------------------------------------- */
+.card {
+  background: #16181d;
+  padding: 25px;
+  border-radius: 14px;
+  border: 1px solid #222226;
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
+  margin-top: 20px;
+  animation: fadeIn 0.4s ease;
+}
+
+.card h4 {
+  margin-bottom: 20px;
+  color: var(--text);
+  font-size: 20px;
+  border-left: 4px solid var(--blue);
+  padding-left: 10px;
+}
+
+/* ---------------------------------------------------------
+   INPUT FIELD STYLE
+--------------------------------------------------------- */
+.input {
+  background: #0f0f12;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2e;
+  color: var(--text);
+  width: 100%;
+  transition: 0.2s ease;
+}
+
+.input::placeholder {
+  color: #6e6e75;
+}
+
+.input:focus {
+  border-color: var(--blue);
+  outline: none;
+  box-shadow: 0 0 8px rgba(59,130,246,0.5);
+}
+
+/* ---------------------------------------------------------
+   GRID FOR INPUTS
+--------------------------------------------------------- */
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+@media(max-width: 768px) {
+  .action-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------
+   TEXTAREA STYLE
+--------------------------------------------------------- */
+textarea.input {
+  resize: none;
+  height: 90px;
+}
+
+/* ---------------------------------------------------------
+   SUBMIT BUTTON
+--------------------------------------------------------- */
+.action-btn {
+  background: var(--blue);
+  padding: 12px 20px;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 10px;
+  transition: 0.25s ease;
+  width: 180px;
+}
+
+.action-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(59,130,246,0.45);
+}
+
+/* ---------------------------------------------------------
+   SUCCESS BOX
+--------------------------------------------------------- */
+.success-box {
+  background: rgba(34,197,94,0.15);
+  border: 1px solid #22c55e;
+  padding: 14px;
+  color: #22c55e;
+  border-radius: 10px;
+  font-size: 15px;
+  margin-top: 15px;
+  animation: pop 0.4s ease;
+}
+
+/* Animation Styles */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop {
+  from { scale: 0.95; opacity: 0; }
+  to   { scale: 1; opacity: 1; }
+}
